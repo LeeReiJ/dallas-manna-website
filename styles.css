@@ -1,0 +1,486 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Header and Navigation */
+header {
+    background: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><clipPath id="star"><path d="M100,20 L120,80 L180,80 L135,115 L155,175 L100,140 L45,175 L65,115 L20,80 L80,80 Z"/></clipPath></defs><g clip-path="url(%23star)"><rect x="0" y="0" width="100" height="100" fill="%23FBB040"/><rect x="100" y="0" width="100" height="100" fill="%2393C83E"/><rect x="0" y="100" width="100" height="100" fill="%23E31C79"/><rect x="100" y="100" width="100" height="100" fill="%2343B8E1"/><rect x="85" y="55" width="30" height="90" fill="white"/><rect x="55" y="85" width="90" height="30" fill="white"/></g></svg>') center/contain no-repeat;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo-sub {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #333;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #43B8E1;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(251,176,64,0.9) 0%, rgba(147,200,62,0.9) 25%, rgba(227,28,121,0.9) 75%, rgba(67,184,225,0.9) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/></svg>') center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 70px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><clipPath id="star2"><path d="M100,20 L120,80 L180,80 L135,115 L155,175 L100,140 L45,175 L65,115 L20,80 L80,80 Z"/></clipPath></defs><g clip-path="url(%23star2)"><rect x="0" y="0" width="100" height="100" fill="%23FBB040"/><rect x="100" y="0" width="100" height="100" fill="%2393C83E"/><rect x="0" y="100" width="100" height="100" fill="%23E31C79"/><rect x="100" y="100" width="100" height="100" fill="%2343B8E1"/><rect x="85" y="55" width="30" height="90" fill="white"/><rect x="55" y="85" width="90" height="30" fill="white"/></g></svg>') center/contain no-repeat;
+    opacity: 0.15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: white;
+    color: #E31C79;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #FBB040, #93C83E, #E31C79, #43B8E1);
+    border-radius: 2px;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid;
+}
+
+.service-card:nth-child(1) {
+    border-top-color: #FBB040;
+}
+
+.service-card:nth-child(2) {
+    border-top-color: #93C83E;
+}
+
+.service-card:nth-child(3) {
+    border-top-color: #43B8E1;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.service-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.service-card .time {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #E31C79;
+    margin: 1rem 0;
+}
+
+/* Ministries Section */
+.ministries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.ministry-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    border-left: 5px solid;
+}
+
+.ministry-card:nth-child(4n+1) {
+    border-left-color: #FBB040;
+}
+
+.ministry-card:nth-child(4n+2) {
+    border-left-color: #93C83E;
+}
+
+.ministry-card:nth-child(4n+3) {
+    border-left-color: #E31C79;
+}
+
+.ministry-card:nth-child(4n) {
+    border-left-color: #43B8E1;
+}
+
+.ministry-card:hover {
+    transform: translateX(5px);
+}
+
+.ministry-card h3 {
+    color: #333;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+/* About Section */
+.about {
+    background: linear-gradient(135deg, rgba(251,176,64,0.05) 0%, rgba(147,200,62,0.05) 50%, rgba(67,184,225,0.05) 100%);
+}
+
+.about-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 2;
+}
+
+/* Live Section */
+.live-content {
+    text-align: center;
+}
+
+.live-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.facebook-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.facebook-container iframe {
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.live-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.btn-facebook {
+    background: #1877f2;
+    color: white;
+}
+
+.btn-facebook:hover {
+    background: #166fe5;
+}
+
+.btn-live {
+    background: #E31C79;
+    color: white;
+}
+
+.btn-live:hover {
+    background: #c91869;
+}
+
+.live-info {
+    background: linear-gradient(135deg, rgba(251,176,64,0.1) 0%, rgba(147,200,62,0.1) 50%, rgba(67,184,225,0.1) 100%);
+    padding: 2.5rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.live-info h3 {
+    color: #E31C79;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.live-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Contact Section */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.contact-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.contact-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #FBB040 0%, #93C83E 33%, #E31C79 66%, #43B8E1 100%);
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 1.05rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 2rem 0;
+        gap: 0;
+        transition: left 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show {
+        left: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .logo-main {
+        font-size: 1.2rem;
+    }
+
+    .logo-sub {
+        font-size: 0.75rem;
+    }
+
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    .services-grid,
+    .ministries-grid,
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .facebook-container iframe {
+        width: 100% !important;
+        max-width: 500px;
+    }
+
+    .live-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .live-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
