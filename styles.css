@@ -86,10 +86,8 @@ nav {
     color: #43B8E1;
 }
 
-/* Hero Section */
+/* Hero Section with Gallery */
 .hero {
-    background: linear-gradient(135deg, rgba(251,176,64,0.9) 0%, rgba(147,200,62,0.9) 25%, rgba(227,28,121,0.9) 75%, rgba(67,184,225,0.9) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/></svg>') center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -98,23 +96,116 @@ nav {
     color: white;
     margin-top: 70px;
     position: relative;
+    overflow: hidden;
+    background: #000;
 }
 
-.hero::before {
-    content: '';
+.hero-gallery {
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><clipPath id="star2"><path d="M100,20 L120,80 L180,80 L135,115 L155,175 L100,140 L45,175 L65,115 L20,80 L80,80 Z"/></clipPath></defs><g clip-path="url(%23star2)"><rect x="0" y="0" width="100" height="100" fill="%23FBB040"/><rect x="100" y="0" width="100" height="100" fill="%2393C83E"/><rect x="0" y="100" width="100" height="100" fill="%23E31C79"/><rect x="100" y="100" width="100" height="100" fill="%2343B8E1"/><rect x="85" y="55" width="30" height="90" fill="white"/><rect x="55" y="85" width="90" height="30" fill="white"/></g></svg>') center/contain no-repeat;
-    opacity: 0.15;
-    top: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.gallery-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.gallery-slide:nth-child(1) {
+    background-image: url('images/gallery-1.jpg');
+}
+
+.gallery-slide:nth-child(2) {
+    background-image: url('images/gallery-2.jpg');
+}
+
+.gallery-slide:nth-child(3) {
+    background-image: url('images/gallery-3.jpg');
+}
+
+.gallery-slide:nth-child(4) {
+    background-image: url('images/gallery-4.jpg');
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 30px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 3;
+}
+
+.gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.gallery-dot:hover {
+    background: rgba(255,255,255,0.5);
+    transform: scale(1.2);
+}
+
+.gallery-dot.active {
+    background: white;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+}
+
+.hero-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+    animation: fadeInScale 1s ease-out;
+    background: transparent !important;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .hero-content h1 {
@@ -305,6 +396,42 @@ section {
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
+/* Offline Placeholder Styles */
+.offline-placeholder {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.offline-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.offline-message {
+    background: linear-gradient(135deg, rgba(251,176,64,0.1) 0%, rgba(147,200,62,0.1) 50%, rgba(67,184,225,0.1) 100%);
+    padding: 2.5rem;
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.offline-message h3 {
+    color: #E31C79;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.offline-message p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
 .live-buttons {
     display: flex;
     gap: 1.5rem;
@@ -455,6 +582,10 @@ footer p {
         font-size: 1rem;
     }
 
+    .hero-logo {
+        width: 150px;
+    }
+
     .section-title {
         font-size: 2rem;
     }
@@ -469,7 +600,8 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .facebook-container iframe {
+    .facebook-container iframe,
+    .offline-placeholder {
         width: 100% !important;
         max-width: 500px;
     }
