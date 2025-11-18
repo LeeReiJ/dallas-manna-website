@@ -40,7 +40,7 @@ nav {
 .logo-image {
     width: 50px;
     height: 50px;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><clipPath id="star"><path d="M100,20 L120,80 L180,80 L135,115 L155,175 L100,140 L45,175 L65,115 L20,80 L80,80 Z"/></clipPath></defs><g clip-path="url(%23star)"><rect x="0" y="0" width="100" height="100" fill="%23FBB040"/><rect x="100" y="0" width="100" height="100" fill="%2393C83E"/><rect x="0" y="100" width="100" height="100" fill="%23E31C79"/><rect x="100" y="100" width="100" height="100" fill="%2343B8E1"/><rect x="85" y="55" width="30" height="90" fill="white"/><rect x="55" y="85" width="90" height="30" fill="white"/></g></svg>') center/contain no-repeat;
+    background: url('images/logo.png') center/contain no-repeat;
 }
 
 .logo-text {
