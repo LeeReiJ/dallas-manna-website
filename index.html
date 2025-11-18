@@ -29,11 +29,25 @@
     </header>
 
     <section id="home" class="hero">
+        <div class="hero-gallery">
+            <div class="gallery-slide active"></div>
+            <div class="gallery-slide"></div>
+            <div class="gallery-slide"></div>
+            <div class="gallery-slide"></div>
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
+            <img src="images/logo.png" alt="달라스만나교회 로고" class="hero-logo">
             <h1>달라스만나교회</h1>
             <p>기독교 대한 감리회</p>
             <p class="hero-subtitle">믿음과 사랑이 넘치는 공동체</p>
             <a href="#services" class="btn">예배 참여하기</a>
+        </div>
+        <div class="gallery-controls">
+            <button class="gallery-dot active" data-slide="0"></button>
+            <button class="gallery-dot" data-slide="1"></button>
+            <button class="gallery-dot" data-slide="2"></button>
+            <button class="gallery-dot" data-slide="3"></button>
         </div>
     </section>
 
@@ -46,7 +60,7 @@
                 <p>하나님께 드리는 첫 예배<br>찬양과 말씀으로 시작하는 주일</p>
             </div>
             <div class="service-card">
-                <h3>주일 2부 직장인 예배</h3>
+                <h3>주일 2부 예배</h3>
                 <div class="time">오후 1:00</div>
                 <p>온 가족이 함께하는 예배<br>은혜로운 말씀과 교제</p>
             </div>
@@ -66,12 +80,28 @@
                 페이스북 라이브를 통해 실시간으로 함께하세요
             </p>
             
-            <div class="facebook-container">
-                <!-- Facebook Page Plugin -->
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2F%25EB%258B%25AC%25EB%259D%25BC%25EC%258A%25A4-%25EB%25A7%258C%25EB%2582%2598%25EA%25B5%2590%25ED%259A%258C-61577099624738%2F&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                        width="500" 
-                        height="700" 
-                        style="border:none;overflow:hidden;max-width:100%;" 
+            <!-- Offline Placeholder (shown by default) -->
+            <div id="offlineContent" class="facebook-container">
+                <div class="offline-placeholder">
+                    <img src="images/offline-worship.jpg" alt="온라인 예배 대기 이미지">
+                </div>
+            </div>
+
+            <!-- Offline Message -->
+            <div id="offlineMessage" class="offline-message">
+                <h3>현재 라이브 방송이 없습니다</h3>
+                <p>
+                    예배 시간에 다시 방문해주세요<br>
+                    아래 버튼을 눌러 이전 예배 영상을 시청하실 수 있습니다
+                </p>
+            </div>
+
+            <!-- Facebook Live Embed (hidden by default, shown during worship times) -->
+            <div id="liveContent" class="facebook-container" style="display: none;">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdydrnfl%2Fvideos&show_text=false&width=560&height=315&appId" 
+                        width="560" 
+                        height="315" 
+                        style="border:none;overflow:hidden;max-width:100%;border-radius:15px;" 
                         scrolling="no" 
                         frameborder="0" 
                         allowfullscreen="true" 
@@ -80,18 +110,18 @@
             </div>
 
             <div class="live-buttons">
-                <a href="https://www.facebook.com/p/%EB%8B%AC%EB%9D%BC%EC%8A%A4-%EB%A7%8C%EB%82%98%EA%B5%90%ED%9A%8C-61577099624738/" target="_blank" class="btn btn-facebook">
+                <a href="https://www.facebook.com/dydrnfl" target="_blank" class="btn btn-facebook">
                     페이스북 페이지 방문
                 </a>
-                <a href="https://www.facebook.com/p/%EB%8B%AC%EB%9D%BC%EC%8A%A4-%EB%A7%8C%EB%82%98%EA%B5%90%ED%9A%8C-61577099624738/" target="_blank" class="btn btn-live">
-                    라이브 예배 보기
+                <a href="https://www.facebook.com/dydrnfl/videos" target="_blank" class="btn btn-live">
+                    이전 예배 영상 보기
                 </a>
             </div>
 
             <div class="live-info">
                 <h3>온라인 예배 안내</h3>
                 <p>
-                    <strong>주일 예배:</strong> 매주 일요일 오전 9:00, 11:00<br>
+                    <strong>주일 예배:</strong> 매주 일요일 오전 11:00, 오후 1:00<br>
                     <strong>수요 기도회:</strong> 매주 수요일 오후 7:30<br><br>
                     예배 시간에 페이스북 라이브로 실시간 스트리밍됩니다
                 </p>
@@ -158,15 +188,15 @@
         <div class="contact-info">
             <div class="contact-card">
                 <h3>주소</h3>
-                <p>텍사스주 달라스<br>111 Samuel Blvd<br>Dallas, TX 75019</p>
+                <p>텍사스주 달라스<br>123 Faith Avenue<br>Dallas, TX 75001</p>
             </div>
             <div class="contact-card">
                 <h3>전화번호</h3>
-                <p>교회: (907) 231-3991</p>
+                <p>교회: (555) 123-4567<br>사무실: (555) 123-4568</p>
             </div>
             <div class="contact-card">
                 <h3>이메일</h3>
-                <p>jyk5813438@gmail.com</p>
+                <p>info@dallasmanna.org<br>pastor@dallasmanna.org</p>
             </div>
             <div class="contact-card">
                 <h3>사무실 운영시간</h3>
@@ -176,7 +206,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 달라스만나교회 | 기독교 대한 감리회</p>
+        <p>&copy; 2024 달라스만나교회 | 기독교 대한 감리회</p>
         <p>모든 권리 보유 | 사랑과 믿음으로 세워진 교회</p>
     </footer>
 
