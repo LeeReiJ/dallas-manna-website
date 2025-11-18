@@ -1,3 +1,37 @@
+// Hero Gallery Slideshow
+let currentSlide = 0;
+const slides = document.querySelectorAll('.gallery-slide');
+const dots = document.querySelectorAll('.gallery-dot');
+
+function showSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Auto-advance every 5 seconds
+let slideInterval = setInterval(nextSlide, 5000);
+
+// Click on dots to change slide
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+        // Reset auto-advance timer
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    });
+});
+
 // Mobile menu toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const navLinks = document.getElementById('navLinks');
@@ -105,4 +139,76 @@ document.querySelectorAll('.service-card, .ministry-card, .contact-card').forEac
     observer.observe(card);
 });
 
+// ============================================
+// LIVE CONTENT TOGGLE FUNCTIONALITY
+// ============================================
+
+// Function to check if it's worship time and show live content
+function checkWorshipTime() {
+    const now = new Date();
+    const day = now.getDay(); // 0 = Sunday, 3 = Wednesday
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hours * 60 + minutes;
+
+    let isWorshipTime = false;
+
+    // Sunday worship times (11:00 AM - 12:00 PM and 1:00 PM - 2:30 PM)
+    if (day === 0) {
+        const firstService = currentTime >= 660 && currentTime <= 720;  // 11:00 AM - 12:00 PM
+        const secondService = currentTime >= 780 && currentTime <= 870; // 1:00 PM - 2:30 PM
+        isWorshipTime = firstService || secondService;
+    }
+
+    // Wednesday prayer meeting (7:30 PM - 9:00 PM)
+    if (day === 3) {
+        isWorshipTime = currentTime >= 1170 && currentTime <= 1260; // 7:30 PM - 9:00 PM
+    }
+
+    // Show/hide content based on worship time
+    const offlineContent = document.getElementById('offlineContent');
+    const offlineMessage = document.getElementById('offlineMessage');
+    const liveContent = document.getElementById('liveContent');
+
+    if (isWorshipTime) {
+        // Show live content
+        if (offlineContent) offlineContent.style.display = 'none';
+        if (offlineMessage) offlineMessage.style.display = 'none';
+        if (liveContent) liveContent.style.display = 'flex';
+    } else {
+        // Show offline content
+        if (offlineContent) offlineContent.style.display = 'flex';
+        if (offlineMessage) offlineMessage.style.display = 'block';
+        if (liveContent) liveContent.style.display = 'none';
+    }
+}
+
+// Manual toggle function (for admin control)
+function toggleLiveContent(isLive) {
+    const offlineContent = document.getElementById('offlineContent');
+    const offlineMessage = document.getElementById('offlineMessage');
+    const liveContent = document.getElementById('liveContent');
+
+    if (isLive) {
+        if (offlineContent) offlineContent.style.display = 'none';
+        if (offlineMessage) offlineMessage.style.display = 'none';
+        if (liveContent) liveContent.style.display = 'flex';
+    } else {
+        if (offlineContent) offlineContent.style.display = 'flex';
+        if (offlineMessage) offlineMessage.style.display = 'block';
+        if (liveContent) liveContent.style.display = 'none';
+    }
+}
+
+// Check worship time when page loads
+checkWorshipTime();
+
+// Check every minute if it's worship time
+setInterval(checkWorshipTime, 60000);
+
+// Optional: Manual override via browser console
+// To manually show live: toggleLiveContent(true);
+// To manually show offline: toggleLiveContent(false);
+
 console.log('달라스만나교회 웹사이트 로드 완료');
+console.log('라이브 콘텐츠 감지 시스템 활성화됨');
