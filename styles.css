@@ -49,13 +49,13 @@ nav {
 }
 
 .logo-main {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     font-weight: bold;
     color: #333;
 }
 
 .logo-sub {
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
     color: #666;
 }
 
@@ -82,13 +82,15 @@ nav {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: #43B8E1;
 }
 
 /* Hero Section with Gallery */
 .hero {
     height: 100vh;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,6 +145,10 @@ nav {
     background-image: url('images/gallery-4.jpg');
 }
 
+.gallery-slide:nth-child(5) {
+    background-image: url('images/gallery-5.jpg');
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -186,10 +192,11 @@ nav {
 .hero-content {
     position: relative;
     z-index: 2;
+    padding: 2rem;
 }
 
 .hero-logo {
-    width: 200px;
+    width: clamp(120px, 30vw, 200px);
     height: auto;
     margin-bottom: 2rem;
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
@@ -209,19 +216,19 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 6vw, 4rem);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-content p {
-    font-size: 1.8rem;
+    font-size: clamp(1rem, 3vw, 1.8rem);
     margin-bottom: 0.5rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     margin-bottom: 2rem;
     opacity: 0.95;
 }
@@ -234,7 +241,7 @@ nav {
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -252,7 +259,7 @@ section {
 
 .section-title {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
     margin-bottom: 3.5rem;
     color: #333;
     position: relative;
@@ -274,7 +281,7 @@ section {
 /* Services Section */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -308,14 +315,19 @@ section {
 .service-card h3 {
     color: #333;
     margin-bottom: 1rem;
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
 }
 
 .service-card .time {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: bold;
     color: #E31C79;
     margin: 1rem 0;
+}
+
+.service-card p {
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.6;
 }
 
 /* Ministries Section */
@@ -357,7 +369,12 @@ section {
 .ministry-card h3 {
     color: #333;
     margin-bottom: 0.8rem;
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.ministry-card p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.6;
 }
 
 /* About Section */
@@ -369,8 +386,12 @@ section {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
     line-height: 2;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
 }
 
 /* Live Section */
@@ -379,7 +400,7 @@ section {
 }
 
 .live-description {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-bottom: 3rem;
     color: #666;
     line-height: 1.8;
@@ -394,6 +415,7 @@ section {
 .facebook-container iframe {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    max-width: 100%;
 }
 
 /* Offline Placeholder Styles */
@@ -423,13 +445,13 @@ section {
 .offline-message h3 {
     color: #E31C79;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 .offline-message p {
     color: #666;
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
 .live-buttons {
@@ -471,18 +493,18 @@ section {
 .live-info h3 {
     color: #E31C79;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 .live-info p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     line-height: 1.8;
 }
 
 /* Contact Section */
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -493,16 +515,21 @@ section {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
 }
 
 .contact-card h3 {
     color: #333;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
 }
 
 .contact-card p {
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
     line-height: 1.8;
 }
 
@@ -516,7 +543,7 @@ footer {
 
 footer p {
     margin: 0.5rem 0;
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
 }
 
 /* Responsive Design */
@@ -557,37 +584,14 @@ footer p {
         font-size: 1.1rem;
     }
 
-    .logo-main {
-        font-size: 1.2rem;
-    }
-
-    .logo-sub {
-        font-size: 0.75rem;
-    }
-
     .logo-image {
         width: 40px;
         height: 40px;
     }
 
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .hero-logo {
-        width: 150px;
-    }
-
-    .section-title {
-        font-size: 2rem;
+    .hero {
+        height: 70vh;
+        min-height: 450px;
     }
 
     section {
@@ -595,15 +599,17 @@ footer p {
     }
 
     .services-grid,
-    .ministries-grid,
+    .ministries-grid {
+        grid-template-columns: 1fr;
+    }
+
     .contact-info {
         grid-template-columns: 1fr;
     }
 
-    .facebook-container iframe,
-    .offline-placeholder {
-        width: 100% !important;
-        max-width: 500px;
+    .facebook-container iframe {
+        width: 100%;
+        height: 300px;
     }
 
     .live-buttons {
@@ -614,5 +620,44 @@ footer p {
     .live-buttons .btn {
         width: 100%;
         max-width: 300px;
+    }
+
+    .about-content br {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0 1rem;
+    }
+
+    .gallery-controls {
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .gallery-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 2.5rem 1rem;
+    }
+
+    .service-card,
+    .ministry-card,
+    .contact-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .live-info,
+    .offline-message {
+        padding: 2rem 1.5rem;
     }
 }
