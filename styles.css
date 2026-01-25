@@ -531,6 +531,24 @@ section {
 .contact-card p {
     font-size: clamp(0.95rem, 2vw, 1.05rem);
     line-height: 1.8;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+}
+
+.contact-card p {
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.8;
 }
 
 /* Footer */
